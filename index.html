@@ -13,13 +13,22 @@
 <!-- Navigations bar-->
 <nav class="navbar navbar-light bg-light">
     <a href="" class="navbar-brand">Movies List</a>
-    <a href="" class="navbar-brand">Add Movie</a>
+    <a id="addViewBtn" class="navbar-brand">Add Movie</a>
     <a href="" class="navbar-brand">Logout</a>
     <input id="search" type="text" placeholder="full-search" class="m-2" >
 </nav>
 
-<div class="container"></div>
+<div class="container">
+    <div class="moviesView"></div>
+</div>
 
+<div class="add-movies-view">
+    <input name="title" type="text" placeholder="Title">
+    <input name="year" type="text" placeholder="Year">
+    <input name="category" type="text" placeholder="Category">
+    <input name="rate" type="text" placeholder="Rate">
+    <button id="addBtn">Add Movie</button>
+</div>
 
 <script src="db.js"></script>
 <script src="main.js"></script>

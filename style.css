@@ -5,12 +5,17 @@
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
+
 }
 
-.card {
-    width: 400px;
-    height: 300px;
+.movies-view {
+    display: flex;
+
+}
+
+.add-movies-view {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    display: none;
 }
