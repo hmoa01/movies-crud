@@ -10,6 +10,7 @@ const titleInput = document.querySelector('input[name="title"]');
 const yearInput = document.querySelector('input[name="year"]');
 const categoryInput = document.querySelector('input[name="category"]');
 const rateInput = document.querySelector('input[name="rate"]');
+const searchInput = document.querySelector('#search');
 
 //EDIT INPUTS
 const eTitleInput = document.querySelector('input[name="etitle"]');
@@ -24,7 +25,6 @@ const addButton = document.querySelector('#addBtn');
 const editButton = document.querySelector('#editBtn');
 
 
-
 //Events
 addViewBtn.addEventListener('click', () => {
     moviesView.style.display = "none";
@@ -32,6 +32,28 @@ addViewBtn.addEventListener('click', () => {
 })
 addButton.addEventListener('click', addMovie);
 editButton.addEventListener('click', editMovie);
+searchInput.addEventListener('keyup', searchMovie);
+
+
+//Functions
+function searchMovie() {
+    let searchTerm = this.value;
+    let filtered = db.filter(movie => movie.title.includes(searchTerm));
+    displayList(filtered);
+}
+function addMovie() {
+    let newMovie = {
+        image: imageInput.value,
+        title: titleInput.value,
+        year: yearInput.value,
+        category: categoryInput.value,
+        rate: rateInput.value
+    }
+    db.push(newMovie)
+    displayList();
+    moviesView.style.display = "flex";
+
+}
 function editMovie() {
  let indexOfMovie = this.getAttribute('data-index');
  let editedMovie = {
@@ -49,8 +71,15 @@ function editMovie() {
 
 }
 
-displayList();
+function deleteMovie() {
+    let indexOfMoive = this.getAttribute('data-index');
+    db.splice(indexOfMoive, 1);
+    displayList();
+}
 
+
+
+displayList();
 function displayEditForm() {
     let indexOfMovie = this.getAttribute('data-index');
     let selectedMovie = db[indexOfMovie]
@@ -64,16 +93,10 @@ function displayEditForm() {
     moviesView.style.display="none"
     editMoviesView.style.display="block"
 }
-
-function deleteMovie() {
-    let indexOfMoive = this.getAttribute('data-index');
-    db.splice(indexOfMoive, 1);
-    displayList();
-}
-
-function displayList() {
+function displayList(filtered) {
+    let currentMovies = filtered || db;
     let html = ``;
-    db.forEach((movie,index) => {
+    currentMovies.forEach((movie,index) => {
         html += `
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="${movie.image}" alt="Card image cap">
@@ -103,16 +126,5 @@ function displayList() {
     addMoviesView.style.display = "none";
 }
 
-function addMovie() {
-    let newMovie = {
-        image: imageInput.value,
-        title: titleInput.value,
-        year: yearInput.value,
-        category: categoryInput.value,
-        rate: rateInput.value
-    }
-    db.push(newMovie)
-    displayList();
-    moviesView.style.display = "flex";
 
-}
+
