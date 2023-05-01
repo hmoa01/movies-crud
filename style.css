@@ -5,17 +5,34 @@
 }
 
 .container {
+width: 100vw;
+
 
 }
 
-.movies-view {
+.moviesView {
     display: flex;
-
+    gap: 10px;
+    width: 100%;
+    margin-top: 50px;
 }
 
 .add-movies-view {
-    width: 600px;
+    width: 60vw;
     display: flex;
     flex-direction: column;
     display: none;
+    margin-top: 50px;
+}
+
+.edit-movies-view {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    margin-top: 50px;
+}
+
+#addViewBtn {
+    cursor: pointer;
 }

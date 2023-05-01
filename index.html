@@ -20,15 +20,24 @@
 
 <div class="container">
     <div class="moviesView"></div>
+    <div class="add-movies-view form-control">
+        <input class="form-control p-2" name="image" type="text" placeholder="Image url"><br>
+        <input class="form-control p-2" name="title" type="text" placeholder="Title"><br>
+        <input class="form-control p-2" name="year" type="text" placeholder="Year"><br>
+        <input class="form-control p-2" name="category" type="text" placeholder="Category"><br>
+        <input class="form-control p-2" name="rate" type="text" placeholder="Rate"><br>
+        <button class="btn btn-primary form-control" id="addBtn">Add Movie</button>
+    </div>
+    <div class="edit-movies-view form-control">
+        <input class="form-control p-2" name="etitle" type="text" placeholder="Title"><br>
+        <input class="form-control p-2" name="eyear" type="text" placeholder="Year"><br>
+        <input class="form-control p-2" name="ecategory" type="text" placeholder="Category"><br>
+        <input class="form-control p-2" name="erate" type="text" placeholder="Rate"><br>
+        <button class="btn btn-primary form-control" id="editBtn">Save</button>
+    </div>
+
 </div>
 
-<div class="add-movies-view">
-    <input name="title" type="text" placeholder="Title">
-    <input name="year" type="text" placeholder="Year">
-    <input name="category" type="text" placeholder="Category">
-    <input name="rate" type="text" placeholder="Rate">
-    <button id="addBtn">Add Movie</button>
-</div>
 
 <script src="db.js"></script>
 <script src="main.js"></script>
