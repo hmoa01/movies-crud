@@ -66,7 +66,9 @@ function displayEditForm() {
 }
 
 function deleteMovie() {
-    console.log(this)
+    let indexOfMoive = this.getAttribute('data-index');
+    db.splice(indexOfMoive, 1);
+    displayList();
 }
 
 function displayList() {
